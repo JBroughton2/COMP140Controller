@@ -204,10 +204,11 @@ GameObject:
   m_Component:
   - component: {fileID: 616560080}
   - component: {fileID: 616560081}
+  - component: {fileID: 616560082}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -219,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616560079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.21, y: -3.82, z: -0.037109375}
+  m_LocalPosition: {x: -14.22, y: -4.1, z: -0.037109375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -237,6 +238,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2e9b7ce7ce0c2459646a5fd9efae42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &616560082
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616560079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 14.167022, y: -0.41543758}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 27.75302, y: 0.16912484}
+  m_EdgeRadius: 0
 --- !u!1 &1327947176
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,14 +360,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
-    - target: {fileID: 3018636294472546131, guid: 69bd8e4a8e3d1f840830335a9d9b1794,
-        type: 3}
-      propertyPath: m_TagString
-      value: Fish
-      objectReference: {fileID: 0}
     - target: {fileID: 5730030283992308, guid: 69bd8e4a8e3d1f840830335a9d9b1794, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.83
+      value: 13.39
       objectReference: {fileID: 0}
     - target: {fileID: 5730030283992308, guid: 69bd8e4a8e3d1f840830335a9d9b1794, type: 3}
       propertyPath: m_LocalPosition.y
@@ -453,50 +475,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b6762666e6ebb41a0b1291d83f9096, type: 3}
---- !u!1 &3018636294472546131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3018636294472546131, guid: 69bd8e4a8e3d1f840830335a9d9b1794,
-    type: 3}
-  m_PrefabInstance: {fileID: 817357348930340641}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3018636294472546132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3018636294472546131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb9a4c3539ffe2489004d57f72255b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!60 &3018636294472546133
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3018636294472546131}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.5, y: -0.000000021855694}
-      - {x: 0.00000004371139, y: -0.5}
-      - {x: 0.5, y: 0.0000000059624403}
