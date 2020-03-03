@@ -21,10 +21,6 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         spawnDelay = false;
-    }
-
-    void Update()
-    {
         if (!spawnDelay)
         {
             StartCoroutine(SpawnTimer());
@@ -33,8 +29,9 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnTimer()
     {
-        //spawnDelay = true;
-        Instantiate(fish[UnityEngine.Random.Range(0, fish.Length - 1)], spawnPos);
+        int index = Random.Range(0, fish.Length);
+        Debug.Log("wow");
+        Instantiate(fish[index], spawnPos);
         yield return new WaitForSeconds(delay);
         spawnDelay = false;
     }

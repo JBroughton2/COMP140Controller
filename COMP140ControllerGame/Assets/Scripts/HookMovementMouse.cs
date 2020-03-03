@@ -47,7 +47,17 @@ public class HookMovementMouse : MonoBehaviour
     {
         if(col.CompareTag("Fish"))
         {
-            Destroy(col.gameObject);
+            var fishMovement = col.GetComponent<FishAI>();
+            fishMovement.caught = true;
+            col.transform.parent = this.gameObject.transform;
+        }
+
+        if (col.CompareTag("Obstacle"))
+        {
+            var fish = this.transform.GetChild(1);
+            var fishMovement = fish.GetComponent<FishAI>();
+            fishMovement.caught = false;
+            col.transform.parent = null;
         }
     }
 

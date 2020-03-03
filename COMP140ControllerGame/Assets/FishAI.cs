@@ -12,24 +12,29 @@ public class FishAI : MonoBehaviour
 
     private bool movingRight = true;
     public Transform edgeDetection;
+    public bool caught = false;
 
     private void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D edgeInfoRight = Physics2D.Raycast(edgeDetection.position, Vector2.down, detectDistance);
-        Debug.DrawRay(edgeDetection.position, Vector2.down, Color.red);
-        if(edgeInfoRight.collider == false)
+        if (!caught)
         {
-            if(movingRight == true)
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            RaycastHit2D edgeInfoRight = Physics2D.Raycast(edgeDetection.position, Vector2.down, detectDistance);
+            Debug.DrawRay(edgeDetection.position, Vector2.down, Color.red);
+            if (edgeInfoRight.collider == false)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
+                if (movingRight == true)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    movingRight = false;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    movingRight = true;
+                }
             }
         }
+        
     }
 }
