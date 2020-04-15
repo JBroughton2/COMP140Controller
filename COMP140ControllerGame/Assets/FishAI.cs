@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class FishAI : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
     public bool moveRight;
+    public bool caught;
+    public bool released;
+
+    void Start()
+    {
+        caught = false;
+    }
 
     void Update()
     {
-        if (moveRight)
+        if (!caught)
         {
-            transform.Translate(2 * Time.deltaTime * speed, 0, 0);
-            transform.localScale = new Vector2(1, 1);
+            if (moveRight)
+            {
+                transform.Translate(2 * Time.deltaTime * speed, 0, 0);
+                transform.localScale = new Vector2(1, 1);
+            }
+            else
+            {
+                transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
+                transform.localScale = new Vector2(-1, 1);
+            }
         }
-        else
-        {
-            transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
-            transform.localScale = new Vector2(-1, 1);
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,5 +47,11 @@ public class FishAI : MonoBehaviour
                 moveRight = true;
             }
         }
+    }
+
+    public IEnumerator ReleasedTimer()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 }
