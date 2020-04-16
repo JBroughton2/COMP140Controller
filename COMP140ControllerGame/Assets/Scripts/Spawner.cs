@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
         spawnDelay = true;
         int index = Random.Range(0, fish.Length);
         Debug.Log("wow");
-        Instantiate(fish[index], spawnPos.position, spawnPos.rotation);
+        Instantiate(fish[index], spawnPos.position, Quaternion.Euler(0, 180, 0));
         yield return new WaitForSeconds(delay);
         spawnDelay = false;
     }
