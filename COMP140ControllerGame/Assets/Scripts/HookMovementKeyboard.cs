@@ -19,8 +19,10 @@ public class HookMovementKeyboard : MonoBehaviour
         {
             //Start by making a new Vector3 called movementX, this will handle all the movement along the X axis.
             Vector3 movementX = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+
             //We then need to actually move the player using transform and the new movement variable, I'm multiplying it by time and speed to make it smooth and allow me to change the speed.
             transform.position += movementX * Time.deltaTime * moveSpeedX;
+
             //This will then stop the hook from moving vertically while  it's true.
             movingHorizontal = true;
         }
