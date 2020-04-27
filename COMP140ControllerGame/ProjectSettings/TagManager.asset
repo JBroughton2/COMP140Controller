@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Turn
   - Border
+  - ScoreBox
   layers:
   - Default
   - TransparentFX
