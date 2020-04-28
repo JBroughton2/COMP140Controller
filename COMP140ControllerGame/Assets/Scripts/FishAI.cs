@@ -17,8 +17,10 @@ public class FishAI : MonoBehaviour
 
     void Update()
     {
+        //This is checking if the fish has been caught by the player or not, if it has then the fish will stop it's movement functions.
         if (!caught)
         {
+            //Checking if the moveRight bool is true or not. this will automatically move the fish to the right if it's true but if not then it should flip and go back the other way.
             if (moveRight)
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -35,6 +37,7 @@ public class FishAI : MonoBehaviour
         
     }
 
+    //This is a simple flip function that will flip the sprite to make the fish turn around by changing the local scale.
     private void Flip()
     {
         if (moveRight)
@@ -50,7 +53,7 @@ public class FishAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hello");
+        //This checks for the game border and should flip the fish around but doesn't seem to be working which is a problem.
         if (other.gameObject.CompareTag("Border"))
         {
             if (moveRight)
@@ -64,6 +67,7 @@ public class FishAI : MonoBehaviour
         }
     }
 
+    //I use this to give the fish a slight delay after being released before it's destroyed. I would add a nice animation here of it swimming away if I could animate.
     public IEnumerator ReleasedTimer()
     {
         yield return new WaitForSeconds(2);

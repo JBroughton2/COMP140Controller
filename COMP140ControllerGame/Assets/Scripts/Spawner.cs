@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        //These delays are used to give the spawners a small delay so the screen isn't filled with them every frame.
         if (!spawnDelay && !fishOrObstacles)
         {
             StartCoroutine(SpawnTimerFish());
@@ -38,14 +39,18 @@ public class Spawner : MonoBehaviour
     
     IEnumerator SpawnTimerFish()
     {
+        //This will set the delay to true to stop it from spawning more fish
         spawnDelay = true;
+        //it will then create a random index within the fish array that will be used to pick a random fish out
         int index = Random.Range(0, fish.Length);
-        Debug.Log("wow");
+        //This will then spawn the fish into the world that is randomly picked to make the fish look different.
         Instantiate(fish[index], spawnPos.position, Quaternion.Euler(0, 180, 0));
+        //This will then wait for a set amount of time and then set it to false so the spawner can start again.
         yield return new WaitForSeconds(delay);
         spawnDelay = false;
     }
 
+    //The object spawner works in the same way as the fish spawner however the delay is a little longer.
     IEnumerator SpawnTimerObstacle()
     {
         spawnDelay = true;

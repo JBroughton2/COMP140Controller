@@ -9,6 +9,7 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        //This will check if the moveRight bool is true, if it is then the obstacle will just start moving to the right, however it should flip and go back when it's false
         if (moveRight)
         {
             transform.Translate(2 * Time.deltaTime * speed, 0, 0);
@@ -23,7 +24,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hello");
+        //This is the function for checking if it hits the border but it seems to not be working currently.
         if (other.gameObject.CompareTag("Border"))
         {
             if (moveRight)

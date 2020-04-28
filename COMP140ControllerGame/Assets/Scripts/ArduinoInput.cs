@@ -33,8 +33,6 @@ public class ArduinoInput : MonoBehaviour
         controllerActive = true;
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
@@ -54,16 +52,10 @@ public class ArduinoInput : MonoBehaviour
         }
     }
 
-
-
     void RemappingValues(String[] values)
     {
-        hookYValue = Remap(int.Parse(values[0]), 0, 1023, -5, 5);            // scale the input. this could be done on the Arduino as well.
+        hookYValue = Remap(int.Parse(values[0]), 0, 1023, -5, 5);            // scale the input. this is the actual values I will be using on the players script to the movement.
     }
-
-
-
-
 
     void WriteToArduino(string message)
 
@@ -71,8 +63,6 @@ public class ArduinoInput : MonoBehaviour
         serial.WriteLine(message);
         serial.BaseStream.Flush();
     }
-
-
 
     public string ReadFromArduino(int timeout = 0)
     {
@@ -86,19 +76,11 @@ public class ArduinoInput : MonoBehaviour
             return null;
         }
     }
-
-
-
     // be sure to close the serial when the game ends.
-
     void OnDestroy()
-
     {
-
         Debug.Log("Exiting");
-
         serial.Close();
-
     }
 
     // https://forum.unity.com/threads/re-map-a-number-from-one-range-to-another.119437/
